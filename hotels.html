@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Hotels</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	<script>
+		function resetForm()
+		{
+			var x=document.getElementById("hotelform");
+			x.reset();
+			openNav();
+			return true;
+		}
+	</script>
+<style>
+body {
+    margin: 0;
+    font-family: 'Lato', sans-serif;
+}
+
+.overlay {
+    height: 0%;
+    width: 100%;
+    position: fixed;
+    z-index: 10;
+    top: 0;
+    left: 0;
+    background-color: rgb(211,211,211);
+    background-color: rgba(211,211,211, 0.9);
+    overflow-y: auto;
+    transition: 0.5s;
+}
+
+.overlay-content {
+    position: relative;
+    top: 15%;
+    width: 100%;
+    margin-top: 15px;
+}
+.closealign {
+    position: relative;
+    top: 10%;
+    margin-right: 10px;
+    margin-top: 10px;
+}
+
+.overlay a {
+    padding: 8px;
+    text-decoration: none;
+    font-size: 36px;
+    color: #818181;
+    display: block;
+    transition: 0.3s;
+}
+
+.overlay a:hover, .overlay a:focus {
+    color: #f1f1f1;
+}
+
+.overlay .closebtn {
+    position: absolute;
+    top: 20px;
+    right: 45px;
+}
+
+@media screen and (max-height: 450px) {
+  .overlay {overflow-y: auto;}
+  .overlay a {font-size: 20px}
+  .overlay .closebtn {
+    font-size: 40px;
+    top: 15px;
+    right: 35px;
+  }
+}
+.buttonstyle {
+    width: 100px;
+    height: 100px;
+    background-color: #000;
+    border: solid 1px #000;
+    border-radius: 50%
+}
+</style>
+<script>
+function openNav() {
+	//document.getElementById("searchhotel").style.zIndex=-1;
+	//document.getElementById("searchbutton").style.zIndex=-1;
+    document.getElementById("myNav").style.height = "100%";
+}
+
+function closeNav() {
+    document.getElementById("myNav").style.height = "0%";
+	//document.getElementById("searchhotel").style.zIndex=5;
+	//document.getElementById("searchbutton").style.zIndex=5;
+}
+</script>
+</head>
+
+<body background="hotelbg.jpg" style="background-size: 100% auto;">
+
+
+<div class="container">
+		<br>
+		<nav class="navbar navbar-default" role="navigation" style="border-radius: 15px;">
+            <div class="row">
+			<div class="col-xs-1 col-md-0"></div>
+			<div class="col-xs-10 col-md-12">
+			<form class="navbar-text" role="search">
+                <div class="input-group">
+                    <input type="text" class="form-control" placeholder="Search" name="searchhotel" id="searchhotel">
+                    <div class="input-group-btn">
+                        <button class="btn btn-default" type="submit" id="searchbutton"><i class="glyphicon glyphicon-search"></i></button>
+                    </div>
+                </div>
+            </form>
+			</div>
+			<div class="col-xs-1 col-md-0"></div>
+			</div>
+		</nav>
+		<!--overlay-->
+	<div id="myNav" class="overlay">
+	<div class="row"><div class="col-sm-12">
+			<div class="closealign text-right"><button class="btn btn-primary" onclick="closeNav()">Close</button></div>
+		<div class="row">
+		<div class="col-sm-3">
+		</div>
+		<div class="col-sm-6">
+		<div class="overlay-content">
+			<form name="hotelform form-inline" id="hotelform">
+				<center><h3>Hotel Description</center>
+				<div class="form-group">
+					<label for="hotelname">Hotel Name:</label>
+					<input type="text" class="form-control" id="hotelname" name="hotelname" required placeholder="Hotel Name">
+				</div>
+			
+				<div class="form-group">
+					<label for="latitude">Latitude</label>
+					<input type="text" class="form-control" id="latitude" name="latitude" required placeholder="Latitude">
+				</div>
+				<div class="form-group">
+					<label for="longitude">Longitude</label>
+					<input type="text" class="form-control" id="longitude" name="longitude" required placeholder="Longitude">
+				</div>
+				<div class="row">
+					<div class="col-xs-6">
+						<div class="form-group">
+							<label for="ac">Air-Conditioned:</label>
+							<select class="form-control" id="ac">
+							<option value="true">Yes</option>
+							<option value="false">No</option>
+							</select>
+						</div>
+					</div>
+					<div class="col-xs-6">
+						<div class="form-group">
+							<label for="homedel">Home Delivery</label>
+							<select class="form-control" id="homedel">
+							<option value="true">Yes</option>
+							<option value="false">No</option>
+							</select>
+						</div>
+					</div>
+				</div>
+				<div class="form-group">
+					<label for="rating">Rating</label>
+					<input type="text" class="form-control" id="rating" name="rating" required placeholder="Rating">
+				</div>
+				<div class="form-group">
+					<label for="tele">Telephone</label>
+					<input type="text" class="form-control" id="tele" name="tele" required placeholder="Telephone Number">
+				</div>
+				<div class="form-group">
+					<label for="hotelid">Hotel ID</label>
+					<input type="text" class="form-control" id="hotelid" name="hotelid" required placeholder="Hotel ID">
+				</div>
+				<div class="form-group">
+					<label for="existfood">Food</label>
+					<div class="row"><div class="col-xs-6">
+					<input type="text" class="form-control" id="existfood" name="existfood" required placeholder="Food"></div>
+					<div class="col-xs-6"><input type="text" class="form-control" id="price" name="price" required placeholder="Price"></div></div>
+					<div class="row">
+					<label class="checkbox-inline"><input type="checkbox" data-toggle="toggle" value="">Morning</label>
+					<label class="checkbox-inline"><input type="checkbox" value="">Afternoon</label>
+					<label class="checkbox-inline"><input type="checkbox" value="">Evening</label>
+					<label class="checkbox-inline"><input type="checkbox" value="">Night</label>
+					</div>
+				</div>
+				<div class="text-right">
+				<button type="button" class="btn btn-default btn-success">Save</button>
+				<button type="button" class="btn btn-default btn-warning">Reset</button>
+				</div>
+				<br><br>
+			</form>
+		</div>
+		</div>
+		<div class="col-sm-3"></div>
+		</div>
+	</div></div></div>
+	<button type="button" class="btn btn-info btn-lg" onclick="openNav()">Register new hotel</button>
+	<button type="button" class="btn btn-info btn-lg" onclick="resetForm()">Edit Hotel</button>
+</div>
+
+
+
+     
+</body>
+</html>
